@@ -36,3 +36,26 @@ const fs = require('fs');
 let data = fs.readFileSync('./people..js');
 console.log(data.toString());
 console.log("======================");
+
+// // module1 started
+// const EventEmitter = require('events');
+// const startPeriod = require('./school.js').startPeriod;
+// const emitter = require('./school.js').emitter;
+
+// emitter.on('bellRing', (data) => {
+//   console.log('Event triggered:', data);
+// });
+// startPeriod();
+// // module1 ended
+
+
+
+const School = require('./school.js');
+const school = new School();
+
+school.on('bellRing', (data) => {
+  console.log('Event triggered:', data);
+});
+
+school.startPeriod();
+
