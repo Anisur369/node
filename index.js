@@ -36,8 +36,7 @@ app.handlers = (request, response) => {
 
   // get the query string as an object
   const queryStringObject = parsedUrl.query;
-  const headersObject = request.headers;
-  console.log(headersObject);
+  console.log(`Method: ${method}, Path: ${trimmedPath}`);
 
 
   // response handler  
