@@ -33,11 +33,13 @@ app.handlers = (request, response) => {
   const parsedUrl = url.parse(request.url, true);
   const trimmedPath = parsedUrl.pathname.replace(/^\/+|\/+$/g, '');
   const method = request.method.toLowerCase();
-
   // get the query string as an object
   const queryStringObject = parsedUrl.query;
   const headersObject = request.headers;
-  console.log(headersObject);
+  request.on('data', (data) => {
+      
+  })
+
 
 
   // response handler  
