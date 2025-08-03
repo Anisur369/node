@@ -34,17 +34,7 @@ handlers.handleReqRes = (request, response) => {
     headersObject,
   };
 
-  chosenHandler(requestProperties, (statusCode, payload) => {
-    statusCode = typeof statusCode === 'number' ? statusCode : 404;
-    payload = typeof payload === 'object' ? payload : {};
 
-    const realData = payload.message;
-
-    const payloadString = JSON.stringify(payload);
-
-    response.writeHead(statusCode, {'Content-Type': 'application/json'});
-    response.end(payloadString);
-  });
 
   const decoder = new StringDecoder('utf-8');
   let realData = '';
@@ -53,9 +43,21 @@ handlers.handleReqRes = (request, response) => {
   })
   request.on('end', () => {
     realData += decoder.end();
-    response.end('Hello World');
+
+    chosenHandler(requestProperties, (statusCode, payload) => {
+      statusCode = typeof statusCode === 'number' ? statusCode : 404;
+      payload = typeof payload === 'object' ? payload : {};
+
+      const realData = payload.message;
+
+      const payloadString = JSON.stringify(payload);
+
+      response.writeHead(statusCode, {'Content-Type': 'application/json'});
+      
+      response.end(payloadString);
+    });
+    // response.end(realData);
   })
-  console.log(request)
 };
 
 
