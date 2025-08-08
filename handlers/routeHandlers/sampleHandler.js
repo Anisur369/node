@@ -10,7 +10,9 @@ const handler = {}
 handler.sampleHandler = (requestProperties, callback) => {
   // console.log(requestProperties);
   // response.end('Sample handler is working');
-  callback(200, {'message': 'Anisur'});
+  callback(200, {
+    message: 'Anisur'
+  });
 }
 
 module.exports = handler;

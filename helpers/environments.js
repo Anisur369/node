@@ -7,7 +7,6 @@
 
 // dependencies
 
-
 // module scaffolding
 const environments = {};
 
@@ -27,7 +26,6 @@ const currentEnvironment = typeof(process.env.NODE_ENV) == 'string' ? process.en
 const environmentToExport = typeof(environments[currentEnvironment]) == 'object' ? environments[currentEnvironment] : environments.staging;
 
 module.exports = environmentToExport;
-
 
 
 
