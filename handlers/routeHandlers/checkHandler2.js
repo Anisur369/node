@@ -94,7 +94,28 @@ handler._check.post = (requestProperties, callback) => {
     callback(400, {'Error': 'Missing required fields'});
   }
 }
-handler._check.get = (requestProperties, callback) => {}
+handler._check.get = (requestProperties, callback) => {
+  const id = typeof(requestProperties.queryStringObject.id) == 'string' && requestProperties.queryStringObject.id.trim().length == 40 ? requestProperties.queryStringObject.id : false;
+  if (id) {
+    handler._data.read('checks', id, (err, checkData) => {
+      if (!err && checkData) {
+        const token = typeof(requestProperties.headersObject.token) == 'string' ? requestProperties.headersObject.token : false;
+        // verify the token
+        tokenHandler._token.verify(token, checkData.userPhone, (tokenIsValid) => {
+          if (tokenIsValid) {
+            callback(200, checkData);
+          } else {
+            callback(403, {'Error': 'Authentication failure'});
+          }
+        });
+      } else {
+        callback(404, {'Error': 'Check not found'});
+      }
+    });
+  } else {
+    callback(400, {'Error': 'Missing required field'});
+  }
+}
 handler._check.put = (requestProperties, callback) => {}
 handler._check.delete = (requestProperties, callback) => {}
 

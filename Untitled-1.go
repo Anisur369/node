@@ -55,7 +55,22 @@ http://localhost:3000/token?id=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
     "successCodes":[200,201],
     "timeoutSeconds":2
 }
+// headerObject
+token=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
 
+// 10.checkHandler view get requertment
+http://localhost:3000/checks?id=d4cac9735b59cf354bb58c65535549fb2e8f3900
+// headerObject
+token=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
+
+// 11.checkHandler update put requertment
+{
+    "id":"d4cac9735b59cf354bb58c65535549fb2e8f3900",
+    "extend":true,
+    "expires":1754381277810
+}
+// headerObject
+token=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
 
 
 
