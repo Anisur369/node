@@ -59,22 +59,22 @@ http://localhost:3000/token?id=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
 token=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
 
 // 10.checkHandler view get requertment
-http://localhost:3000/checks?id=d4cac9735b59cf354bb58c65535549fb2e8f3900
+http://localhost:3000/check?id=02b1eba291a3670250617d89f4759d80be926ac4
 // headerObject
 token=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
 
 // 11.checkHandler update put requertment
-{
-    "id":"d4cac9735b59cf354bb58c65535549fb2e8f3900",
-    "extend":true,
-    "expires":1754381277810
+{   
+    "protocol":"https",
+    "id":"580fc4ec10ff8543052d3d62fe0c3fd971a00362"
 }
 // headerObject
 token=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
 
-
-
-
+// 12.checkHandler delete requertment
+http://localhost:3000/check?id=580fc4ec10ff8543052d3d62fe0c3fd971a00362
+// headerObject
+token=8fd37ceaca6e9132f532d9f42ca88e2e37bcc842
 
 
 

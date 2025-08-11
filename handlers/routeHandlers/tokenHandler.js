@@ -35,7 +35,8 @@ handler._token.post = (requestProperties, callback) => {
         const hashedPassword = helpers.hash(password);
         if (hashedPassword == userData.password) {
           const tokenId = helpers.createRandomString(20);
-          const expires = Date.now() + (1000 * 60 * 60)*24;
+          const expires = Date.now() + (1000 * 60 * 60)*72; // 72 hours
+          // create token object
           const tokenObject = {
             'phone': phone,
             'id': tokenId,
